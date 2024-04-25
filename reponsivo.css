@@ -1,0 +1,25 @@
+@media screen and (min-width: 320px) and (max-width: 768px) {
+  body {
+  }
+  section {
+    max-width: 300px;
+    height: 100%;
+  }
+  .titulo {
+    font-size: 20px;
+  }
+  .div1 {
+    border: 2px solid black;
+  }
+  button {
+    width: 60px;
+    font-size: 20px;
+    height: 60px;
+    background: white;
+    border: 2px solid black;
+    cursor: pointer;
+  }
+  button:hover {
+    background: greenyellow;
+  }
+}
