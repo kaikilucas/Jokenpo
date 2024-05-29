@@ -1,44 +1,45 @@
-const jogadasDisponiveis = ["pedra", "papel", "tesoura"]
-let pontosUsuario = 0
-let pontosComputador = 0
-
+const jogadasDisponiveis = ["pedra", "papel", "tesoura"];
+let pontosUsuario = 0;
+let pontosComputador = 0;
 
 function ligar(jogadaDoUsuario) {
-    const jogadaAleatoria = Math.floor(Math.random() * 3);
-    const jogadaDoComputador = jogadasDisponiveis[jogadaAleatoria];
+  const jogadaAleatoria = Math.floor(Math.random() * 3);
+  const jogadaDoComputador = jogadasDisponiveis[jogadaAleatoria];
 
-
-
-
-
-    if (jogadaDoComputador === jogadaDoUsuario) {
-        alert("EMPATE, o computador jogou o mesmo que você")
-    } else if (jogadaDoComputador === 'pedra') {
-        if (jogadaDoUsuario === "papel") {
-            alert("GANHOU, o computador jogou pedra")
-            pontosUsuario = pontosUsuario + 1
+  if (jogadaDoUsuario === jogadaDoComputador) {
+    alert("EMPATE, o computador jogou o mesmo que você");
+  } else {
+    switch (jogadaDoUsuario) {
+      case "pedra":
+        if (jogadaDoComputador === "tesoura") {
+          alert("GANHOU, o computador jogou tesoura");
+          pontosUsuario++;
         } else {
-            alert("PERDEU, o computador jogou pedra");
-            pontosComputador = pontosComputador + 1
+          alert("PERDEU, o computador jogou papel");
+          pontosComputador++;
         }
-    } else if (jogadaDoComputador === "papel") {
-        if (jogadaDoUsuario === "pedra") {
-            alert("PERDEU, o computador jogou papel")
-            pontosComputador = pontosComputador + 1
+        break;
+      case "papel":
+        if (jogadaDoComputador === "pedra") {
+          alert("GANHOU, o computador jogou pedra");
+          pontosUsuario++;
         } else {
-            alert("GANHOU, o computador jogou papel")
-            pontosUsuario = pontosUsuario + 1
+          alert("PERDEU, o computador jogou tesoura");
+          pontosComputador++;
         }
-    } else {
-        if (jogadaDoUsuario === "pedra") {
-            alert("GANHOU, o computador jogou tesoura")
-            pontosUsuario = pontosUsuario + 1
+        break;
+      case "tesoura":
+        if (jogadaDoComputador === "papel") {
+          alert("GANHOU, o computador jogou papel");
+          pontosUsuario++;
         } else {
-            alert("PERDEU, o computador jogou tesoura")
-            pontosComputador = pontosComputador + 1
+          alert("PERDEU, o computador jogou pedra");
+          pontosComputador++;
         }
+        break;
     }
+  }
 
-    document.getElementById("voce").innerHTML = pontosUsuario;
-    document.getElementById("maquina").innerHTML = pontosComputador;
+  document.getElementById("voce").innerHTML = pontosUsuario;
+  document.getElementById("maquina").innerHTML = pontosComputador;
 }
